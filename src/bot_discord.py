@@ -1,22 +1,17 @@
 import os
 import discord
 from discord.ext import commands, tasks
-from dotenv import load_dotenv
 
 from html_parser import get_projects_html, get_html_parser
 from database import save_projects, read_data
+from dotenv import load_dotenv
 
 # ============================
-# LOAD ENV
+# CONFIGURAÇÃO
 # ============================
 load_dotenv()
-
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-CHANNEL_ID = int(os.getenv("DISCORD_CHANNEL_ID"))
-
-# ============================
-# CONFIG
-# ============================
+DISCORD_CHANNEL_ID = int(os.getenv("DISCORD_CHANNEL_ID"))
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -69,7 +64,7 @@ async def projetos(ctx):
         return
 
     mensagem = ""
-    for p in projetos[:5]:
+    for p in projetos[:5]:  # evita flood
         mensagem += (
             f"📌 **{p[5]}**\n"
             f"💼 {p[2]} | {p[4]}\n"
@@ -85,7 +80,7 @@ async def projetos(ctx):
 
 @tasks.loop(minutes=5)
 async def monitorar_novos():
-    canal = bot.get_channel(CHANNEL_ID)
+    canal = bot.get_channel(DISCORD_CHANNEL_ID)
     projetos = buscar_projetos()
 
     for p in projetos:
