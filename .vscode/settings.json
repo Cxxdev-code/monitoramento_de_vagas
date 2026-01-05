@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "freelas_project.db",
+            "database": "${workspaceFolder:selenium}/data/freelas_projects.db"
+        }
+    ]
+}
