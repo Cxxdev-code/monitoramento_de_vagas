@@ -9,12 +9,17 @@ import time
     
     
 def get_html_browser():
+    """Inicia um navegador headless, acessa a URL alvo e retorna o HTML."""
     try:
         chrome_options = Options()
         chrome_options.add_argument("--headless=new") 
         chrome_options.add_argument("--disable-gpu")  
         chrome_options.add_argument("--window-size=1920,1080") 
         chrome_options.add_argument("--no-sandbox")
+        prefs = {
+        "profile.managed_default_content_settings.images": 2  # 2 significa 'Bloquear'
+    }
+        chrome_options.add_experimental_option("prefs", prefs)
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options= chrome_options)
         driver.get("https://www.99freelas.com.br/projects?categoria=web-mobile-e-software&data-da-publicacao=menos-de-24-horas-atras")
@@ -26,5 +31,3 @@ def get_html_browser():
     finally:
         driver.quit()
     return html
-    
-
