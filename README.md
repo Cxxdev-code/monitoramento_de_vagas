@@ -33,8 +33,14 @@ Este projeto é uma ferramenta de automação robusta desenvolvida em Python par
 ├── main.py             # Arquivo principal de inicialização
 └── requirements.txt    # Lista de dependências do sistema
 ```
+**Exemplo pratico:**
+<p align="center">
+  <img src="assets/bot.png" alt="Monitor de Vagas 99Freelas" width="500">
+</p>
+
 
 **Como Configurar e Rodar**
+
 1. Clonar o Repositório
 
 git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
