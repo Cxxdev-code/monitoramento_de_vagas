@@ -5,10 +5,10 @@ Este projeto é uma ferramenta de automação robusta desenvolvida em Python par
 ## ✨ Funcionalidades
 
 - **Web Scraping Inteligente**: Captura dados dinâmicos utilizando Selenium em modo `headless` com bloqueio de imagens para otimização de banda e CPU.
-- **Fila de Mensagens (Queue)**: Implementação de `collections.deque` para garantir que as notificações sejam entregues de forma ordenada e respeitando os limites da API do Discord[cite: 2].
+- **Fila de Mensagens (Queue)**: Implementação de `collections.deque` para garantir que as notificações sejam entregues de forma ordenada e respeitando os limites da API do Discord.
 - **Arquitetura Multithread**: O bot do Discord e o motor de monitoramento rodam simultaneamente, garantindo que o sistema nunca pare.
 - **Persistência em Banco de Dados**: Utiliza SQLite para registrar projetos já enviados, garantindo que o usuário não receba notificações repetidas.
-- **Embeds Customizados**: Notificações formatadas com título, link, categoria, nível de experiência e descrição resumida[cite: 2].
+- **Embeds Customizados**: Notificações formatadas com título, link, categoria, nível de experiência e descrição resumida.
 
 ## 🛠️ Tecnologias e Bibliotecas
 
