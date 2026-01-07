@@ -35,7 +35,7 @@ def create_db():
 def save_to_db(list_projects):
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
-
+    valid = []
     for project in list_projects:
         
         cursor.execute(f'''
@@ -45,10 +45,13 @@ def save_to_db(list_projects):
             (project['ID'], project['categoria'], project['publicado'], 
              project['nivel'], project['titulo'], project['descriçao'], project['link'])
         )
+        cursor.execute(f"SELECT {project['ID']} FROM {NAME_TABLE}")
+        valid.append(cursor.fetchone())
     
     conn.commit()
     conn.close()
-    print(f"Processo finalizado: {len(list_projects)} projetos processados.")
+    print(f"Processo finalizado: {len(valid)} novos projetos processados.")
+    valid.clear()
 
 
 def read_data():

@@ -38,7 +38,8 @@ def get_html_parser(all_projects):
     lista_projetos = []
     
     for project in all_projects:
-        # Inicializa com N/A para garantir que o dicionário sempre tenha as chaves
+        
+        
         dados = {
             'categoria': "N/A",
             'nivel': "N/A",
@@ -50,23 +51,22 @@ def get_html_parser(all_projects):
         }
 
         try:
-            # 1. Extrair ID diretamente do atributo data-id (muito mais seguro)
+            
+            
             dados['ID'] = project.get('data-id', "N/A")
-
-            # 2. Extrair Informações (Categoria, Nível, Publicado)
+                 
             tags_info = project.find('p', class_='information')
             if tags_info:
-                # O separator "|" ajuda a dividir as strings sem perder o contexto
+                
                 partes = [p.strip() for p in tags_info.get_text(separator="|").split('|') if p.strip()]
                 if len(partes) >= 1: dados['categoria'] = partes[0]
                 if len(partes) >= 2: dados['nivel'] = partes[1]
                 
-                # O tempo publicado geralmente está dentro de um <b> com classe datetime
+                
                 tempo_tag = tags_info.find('b', class_='datetime')
                 if tempo_tag:
                     dados['publicado'] = tempo_tag.get_text(strip=True)
 
-            # 3. Título e Link
             title_tag = project.find('h1', class_='title')
             if title_tag:
                 a_tag = title_tag.find('a')
@@ -75,10 +75,10 @@ def get_html_parser(all_projects):
                     link_relativo = a_tag.get('href', '')
                     dados['link'] = f"https://www.99freelas.com.br{link_relativo}"
 
-            # 4. Descrição (usando find direto na classe específica)
+           
             desc_tag = project.find('div', class_='description')
             if desc_tag:
-                # Removemos o texto de "Expandir" se houver
+    
                 dados['descriçao'] = desc_tag.get_text(strip=True).replace('… Expandir', '')
 
         except Exception as e:

@@ -22,7 +22,7 @@ def get_html_browser():
         chrome_options.add_experimental_option("prefs", prefs)
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options= chrome_options)
-        driver.get("https://www.99freelas.com.br/projects?categoria=web-mobile-e-software&data-da-publicacao=menos-de-24-horas-atras")
+        driver.get("https://www.99freelas.com.br/projects?order=mais-recentes&categoria=web-mobile-e-software")
         
         results_list = driver.find_element(By.CLASS_NAME, "result-list")
         time.sleep(2)
