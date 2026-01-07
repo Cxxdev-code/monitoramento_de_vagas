@@ -1,6 +1,6 @@
 # 🚀 Monitor de Vagas 99Freelas para Discord
 
-Este projeto é uma ferramenta de automação robusta desenvolvida em Python para monitorar oportunidades de trabalho na plataforma **99Freelas**. [cite_start]Ele captura novas vagas em tempo real, gerencia a persistência de dados para evitar duplicidade e envia notificações ricas (Embeds) para um servidor no Discord[cite: 2].
+Este projeto é uma ferramenta de automação robusta desenvolvida em Python para monitorar oportunidades de trabalho na plataforma **99Freelas**. Ele captura novas vagas em tempo real, gerencia a persistência de dados para evitar duplicidade e envia notificações ricas (Embeds) para um servidor no Discord.
 
 ## ✨ Funcionalidades
 
@@ -15,9 +15,9 @@ Este projeto é uma ferramenta de automação robusta desenvolvida em Python par
 - **Python 3.x**
 - **Selenium**: Automação de navegador.
 - **BeautifulSoup4**: Extração e parse de dados HTML.
-- **Discord.py**: Integração com a API do Discord[cite: 2].
+- **Discord.py**: Integração com a API do Discord.
 - **SQLite3**: Armazenamento local leve.
-- **Python-dotenv**: Gerenciamento de variáveis de ambiente seguras[cite: 2].
+- **Python-dotenv**: Gerenciamento de variáveis de ambiente seguras.
 
 ## 📂 Estrutura do Projeto
 
@@ -36,9 +36,10 @@ Este projeto é uma ferramenta de automação robusta desenvolvida em Python par
 
 **Como Configurar e Rodar**
 1. Clonar o Repositório
-Bash
+
 git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
 cd seu-repositorio
+
 
 **Configurar Variáveis de Ambiente**
 Crie um arquivo .env na raiz do projeto conforme o exemplo abaixo:
