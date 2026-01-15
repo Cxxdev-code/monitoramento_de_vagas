@@ -16,6 +16,7 @@ def get_html_browser():
         chrome_options.add_argument("--disable-gpu")  
         chrome_options.add_argument("--window-size=1920,1080") 
         chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
         prefs = {
         "profile.managed_default_content_settings.images": 2  
     }
@@ -25,10 +26,16 @@ def get_html_browser():
         driver.get("https://www.99freelas.com.br/projects?order=mais-recentes&categoria=web-mobile-e-software")
         
         results_list = driver.find_element(By.CLASS_NAME, "result-list")
-        time.sleep(2)
+        time.sleep(5)
         html = results_list.get_attribute("outerHTML")
     
+        
+    except Exception as e:
+        print(f"❌ Erro no Selenium: {e}")
+
     finally:
         if driver:
             driver.quit()
+            
+            
     return html
