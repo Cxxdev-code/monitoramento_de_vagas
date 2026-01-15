@@ -1,5 +1,6 @@
 import time
 import threading
+from src.scrapers.html_parser import published_to_minutes
 from src.core.monitor import run_scraper
 from src.bot.bot_discord import start_bot, send_message
 
@@ -17,6 +18,11 @@ def scraping_loop():
 
             if projects:
                 print(f"🔎 Analisando {len(projects)} projetos...")
+                projects.sort(
+                 key=lambda p: published_to_minutes(p.get('publicado')),
+                 reverse=True
+                )
+                
                 for p in projects:
                     
                     project_id = p.get('project_id') or p.get('ID')

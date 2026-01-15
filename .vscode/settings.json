@@ -4,7 +4,7 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "freelas_project.db",
-            "database": "${workspaceFolder:selenium}/data/freelas_projects.db"
+            "database": "${workspaceFolder:Bot_freelas}/data/freelas_projects.db"
         }
     ]
 }

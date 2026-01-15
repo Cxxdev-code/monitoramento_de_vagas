@@ -9,7 +9,7 @@ import time
     
     
 def get_html_browser():
-    """Inicia um navegador headless, acessa a URL alvo e retorna o HTML."""
+    
     try:
         chrome_options = Options()
         chrome_options.add_argument("--headless=new") 
@@ -17,7 +17,7 @@ def get_html_browser():
         chrome_options.add_argument("--window-size=1920,1080") 
         chrome_options.add_argument("--no-sandbox")
         prefs = {
-        "profile.managed_default_content_settings.images": 2  # 2 significa 'Bloquear'
+        "profile.managed_default_content_settings.images": 2  
     }
         chrome_options.add_experimental_option("prefs", prefs)
         service = Service(ChromeDriverManager().install())

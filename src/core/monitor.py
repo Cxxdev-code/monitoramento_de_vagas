@@ -1,4 +1,4 @@
-from src.scrapers.html_parser import get_html_parser, get_projects_html
+from src.scrapers.html_parser import get_html_parser, get_projects_html, results_scraping
 from src.database.database import save_to_db, read_data
 
 def run_scraper():
@@ -8,3 +8,8 @@ def run_scraper():
 
     save_to_db(projects)
     return read_data()
+
+if __name__ == '__main__':
+    
+   project =  run_scraper()
+   results_scraping(project)

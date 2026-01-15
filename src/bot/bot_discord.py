@@ -65,7 +65,8 @@ async def process_queue():
                 
                 embed.add_field(name="💼 Categoria", value=f"**{dados.get('categoria', 'N/A')}**", inline=True)
                 embed.add_field(name="📊 Nível", value=f"`{dados.get('nivel', 'N/A')}`", inline=True)
-                embed.add_field(name="🕒 Publicado", value=dados.get('publicado', 'N/A'), inline=True)
+                timestamp_now = int(discord.utils.utcnow().timestamp())
+                embed.add_field(name="🕒 Publicado", value=f"<t:{timestamp_now}:R>", inline=True)
                 embed.set_footer(text=f"99Freelas Bot • ID: {dados.get('ID')}")
                 
                 try:

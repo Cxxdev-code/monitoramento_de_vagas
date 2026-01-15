@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from src.scrapers.browser import get_html_browser
-
+import re
 
     
     
@@ -29,7 +29,7 @@ def results_scraping(db_projects):
         print(f"📄 Descrição : {project['descriçao']}")
         print(f"🔗 Link      : {project['link']}")
         print("-" * 50)
-        print(f"🆔 ID        : {project['ID']}")
+        print(f"🆔 ID        : {project['project_id']}")
         print("=" * 50)
         print()
  
@@ -89,7 +89,33 @@ def get_html_parser(all_projects):
     print(f'Dicionário criado com {len(lista_projetos)} projetos.')
     return lista_projetos
     
-    
+
+def published_to_minutes(texto):
+    if not texto:
+        return float('inf')
+
+    texto = texto.lower().strip()
+
+    if 'agora' in texto:
+        return 0
+
+    match = re.search(r'(\d+)', texto)
+    if not match:
+        return float('inf')
+
+    valor = int(match.group(1))
+
+    if 'minuto' in texto:
+        return valor
+    if 'hora' in texto:
+        return valor * 60
+    if 'dia' in texto:
+        return valor * 1440
+    if 'semana' in texto:
+        return valor * 10080
+
+    return float('inf')
+  
 if __name__  == "__main__":
     all_projects = get_projects_html()
     project_parser = get_html_parser(all_projects)
