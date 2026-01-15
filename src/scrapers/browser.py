@@ -29,5 +29,6 @@ def get_html_browser():
         html = results_list.get_attribute("outerHTML")
     
     finally:
-        driver.quit()
+        if driver:
+            driver.quit()
     return html
