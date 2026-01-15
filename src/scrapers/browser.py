@@ -26,7 +26,7 @@ def get_html_browser():
         driver.get("https://www.99freelas.com.br/projects?order=mais-recentes&categoria=web-mobile-e-software")
         
         results_list = driver.find_element(By.CLASS_NAME, "result-list")
-        time.sleep(5)
+        time.sleep(2)
         html = results_list.get_attribute("outerHTML")
     
         

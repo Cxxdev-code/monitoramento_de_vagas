@@ -46,8 +46,8 @@ def scraping_loop():
         except Exception as e:
             print(f"❌ Erro crítico no loop de scraping: {e}")
 
-        #print("💤 Aguardando 5 minutos para a próxima coleta...")
-        #time.sleep(300)
+        print("💤 Aguardando 5 minutos para a próxima coleta...")
+        time.sleep(300)
 
 if __name__ == "__main__":
     
